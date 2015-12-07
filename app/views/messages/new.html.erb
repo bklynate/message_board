@@ -1,0 +1,19 @@
+<h1>Create a new message</h1>
+
+<div class='well'>
+  <%= form_for(@message) do |f| %>
+
+    <div class="control-group">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :content %>
+      <%= f.text_field :content %>
+    </div>
+
+    <%= f.submit(@message.new_record? ? "Create message" : "Update message", class: 'btn btn-primary') %>
+
+  <% end %>
+</div>
