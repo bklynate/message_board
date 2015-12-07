@@ -1,6 +1,6 @@
-What’s Going to Happen?
+RailsBridge - "Advanced Class" Message Board Project
 
-We’re going to build a message board system, where there are posts on the front page and you click through to see the original post plus discussion below.
+I'm going to build a message board system, where there are posts on the front page and you click through to see the original post plus discussion below.
 
     We’ve divided this into challenges:
         Challenge 1: Create a new rails app with a static home page
