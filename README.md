@@ -12,4 +12,4 @@ What’s Going to Happen?
         Challenge 7: Inline replying on a post
         Challenge ∞: Other features of your choice
 
-    Each time you get your app into a functional state, before adding any more features, COMMIT TO GIT! The new features will probably break things, which is neat, but you’ll want to be able to roll back to a prior version if necessary.
+Each time you get your app into a functional state, before adding any more features, COMMIT TO GIT! The new features will probably break things, which is neat, but you’ll want to be able to roll back to a prior version if necessary.
