@@ -16,10 +16,12 @@ ActiveRecord::Schema.define(version: 20151205203841) do
   create_table "messages", force: :cascade do |t|
     t.string   "title",      null: false
     t.text     "content",    null: false
-    t.integer  "user_id",    null: false
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

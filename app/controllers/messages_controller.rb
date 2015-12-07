@@ -4,20 +4,24 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(message_params)
+    @message = current_user.messages.build(message_params)
 
     if @message.save
       flash[:success] = "Your message was created!"
-      redirect_to @message
+      redirect_to message_path(@message)
     else
       render 'new'
     end
+  end
+
+  def show
+    @message = Message.find(message_params)
   end
 
 
   private
 
   def message_params
-    @message = params.require(:message).permit(:title, :content)
+    @message = params.require(:message).permit(:title, :content,:user_id)
   end
 end
