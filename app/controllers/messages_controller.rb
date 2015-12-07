@@ -15,12 +15,12 @@ class MessagesController < ApplicationController
   end
 
   def show
-    @message = Message.find(message_params)
+    @message = Message.find(params[:id])
   end
 
   private
 
   def message_params
-    params.require(:message).permit(:title, :content)
+    params.require(:message).permit(:title, :content, :user_id)
   end
 end
