@@ -16,6 +16,7 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find(params[:id])
+    @reply = Reply.new
   end
 
   private
