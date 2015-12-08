@@ -1,27 +1,21 @@
 class RepliesController < ApplicationController
-  def new
-    @reply = Reply.new
-  end
-
-  def show
-    @reply = Reply.find(params[:id])
-  end
 
   def create
-    @message = Mesage.find(params[:post_id])
-    @reply = @message.replies.build(params.require(:comment).permit(:content))
+    @message = Message.find(params[:message_id])
+    @reply = @message.replies.build(reply_params)
+    @reply.user_id = current_user.id
 
-    if @comment.save
-      flash[:notice] = "Your commant was added!"
-      redirect_to message_path(@message)
+    if @reply.save
+      flash[:notice] = "Your reply was added!"
+      redirect_to  message_path(@message)
     else
       render 'messages/show'
     end
   end
-  
+
   private
 
   def reply_params
-    params.require(:reply).permit(:content,:user_id)
+    params.require(:reply).permit(:content,:user_id,:message_id)
   end
 end
