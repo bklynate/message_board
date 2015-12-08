@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'replies/new'
+
+  get 'replies/show'
+
+  get 'replies/create'
+
   devise_for :users
 
   devise_scope :user do
@@ -11,5 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :messages , only: [:create, :show, :new]
+  resources :messages , only: [:create, :show, :new] do
+    resources :replies, only: [:create,:show,:new]
+  end
 end
