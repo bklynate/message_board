@@ -1,12 +1,18 @@
 <h1> Welcome back, <%= current_user.username %></h1>
 
-<% current_user.messages.each do |msg| %>
-<p>
+<div class='row'>
+  <div class="span8 well">
+  <% @messages.each do |msg| %>
   Title: <%= msg.title %><br>
-  Content: <%= msg.content %>
-</p>
-<% end %>
+  Content: <%= msg.content %><br>
+  <p>
+    <small>Created <%= time_ago_in_words(msg.created_at) %> by <%= msg.creator.username %></small>
+  </p>
+  <% end %>
 
-<p>
-  <%= link_to 'Create a new message', new_message_path %>
-</p>
+  <p>
+    <%= link_to 'Create a new message', new_message_path %>
+  </p>
+
+ </div>
+</div>

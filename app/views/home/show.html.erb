@@ -1,0 +1,12 @@
+<h1> Welcome back, <%= current_user.username %></h1>
+
+<% current_user.messages.each do |msg| %>
+<p>
+  Title: <%= msg.title %><br>
+  Content: <%= msg.content %>
+</p>
+<% end %>
+
+<p>
+  <%= link_to 'Create a new message', new_message_path %>
+</p>
